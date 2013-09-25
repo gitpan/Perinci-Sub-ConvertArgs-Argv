@@ -1,0 +1,35 @@
+NAME
+    Perinci::Sub::ConvertArgs::Argv - Convert hash arguments to command-line
+    options (and arguments)
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+     use Perinci::Sub::ConvertArgs::Argv qw(convert_args_to_argv);
+
+     my $res = convert_args_to_argv(args=>\%args, meta=>$meta, ...);
+
+FUNCTIONS
+    TMP
+
+  convert_args_to_argv
+TODO
+    Option to use/prefer cmdline_aliases.
+
+SEE ALSO
+    Perinci::CmdLine, which uses this module for presenting command-line
+    examples.
+
+    Perinci::Sub::GetArgs::Argv which does the reverse: converting
+    command-line arguments to hash.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

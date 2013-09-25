@@ -1,0 +1,28 @@
+---
+abstract: 'Convert hash arguments to command-line options (and arguments)'
+author:
+  - 'Steven Haryanto <stevenharyanto@gmail.com>'
+build_requires:
+  File::Spec: 0
+  Gen::Test::Rinci::FuncResult: 0
+  IO::Handle: 0
+  IPC::Open3: 0
+  Test::More: 0.98
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Perinci-Sub-ConvertArgs-Argv
+requires:
+  JSON: 0
+  Log::Any: 0
+  Rinci: v1.1.0
+  perl: 5.010001
+resources:
+  homepage: http://metacpan.org/release/Perinci-Sub-ConvertArgs-Argv
+  repository: http://github.com/sharyanto/perl-Perinci-Sub-ConvertArgs-Argv
+version: 0.01
