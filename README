@@ -3,17 +3,62 @@ NAME
     options (and arguments)
 
 VERSION
-    version 0.01
+    version 0.03
 
 SYNOPSIS
      use Perinci::Sub::ConvertArgs::Argv qw(convert_args_to_argv);
 
      my $res = convert_args_to_argv(args=>\%args, meta=>$meta, ...);
 
+DESCRIPTION
 FUNCTIONS
     TMP
 
   convert_args_to_argv
+    None are exported by default, but they are exportable.
+
+  convert_args_to_argv(%args) -> [status, msg, result, meta]
+    Convert hash arguments to command-line arguments. This is the reverse of
+    "Perinci::Sub::GetArgs::Argv::get_args_from_argv".
+
+    Note: currently the function expects schemas in metadata to be
+    normalized already.
+
+    Arguments ('*' denotes required arguments):
+
+    *   args* => *hash*
+
+    *   meta => *hash*
+
+    *   use_pos => *bool*
+
+        Whether to use positional arguments.
+
+        For example, given this metadata:
+
+            {
+                v => 1.1,
+                args => {
+                  arg1 => {pos=>0, req=>1},
+                  arg2 => {pos=>1},
+                  arg3 => {},
+                },
+            }
+
+        then under "use_pos=0" the hash "{arg1="1, arg2=>2, arg3=>'a b'}>
+        will be converted to "['--arg1', 1, '--arg2', 2, '--arg3', 'a b']".
+        Meanwhile if "use_pos=1" the same hash will be converted to "[1, 2,
+        '--arg3', 'a b']".
+
+    Return value:
+
+    Returns an enveloped result (an array). First element (status) is an
+    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
+    function error). Second element (msg) is a string containing error
+    message, or 'OK' if status is 200. Third element (result) is optional,
+    the actual result. Fourth element (meta) is called result metadata and
+    is optional, a hash that contains extra information.
+
 TODO
     Option to use/prefer cmdline_aliases.
 
@@ -23,6 +68,22 @@ SEE ALSO
 
     Perinci::Sub::GetArgs::Argv which does the reverse: converting
     command-line arguments to hash.
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Perinci-Sub-ConvertArgs-Argv>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Perinci-Sub-ConvertArgs-Argv>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-Sub-ConvertAr
+    gs-Argv>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
 
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
