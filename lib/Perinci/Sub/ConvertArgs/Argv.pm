@@ -3,13 +3,12 @@ package Perinci::Sub::ConvertArgs::Argv;
 use 5.010001;
 use strict;
 use warnings;
-use Log::Any '$log';
 
 use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(convert_args_to_argv);
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 our %SPEC;
 
@@ -121,7 +120,7 @@ Perinci::Sub::ConvertArgs::Argv - Convert hash arguments to command-line options
 
 =head1 VERSION
 
-version 0.03
+This document describes version 0.04 of Perinci::Sub::ConvertArgs::Argv (from Perl distribution Perinci-Sub-ConvertArgs-Argv), released on 2014-07-18.
 
 =head1 SYNOPSIS
 
@@ -129,18 +128,12 @@ version 0.03
 
  my $res = convert_args_to_argv(args=>\%args, meta=>$meta, ...);
 
-=head1 DESCRIPTION
-
 =head1 FUNCTIONS
 
-TMP
-
-=head2 convert_args_to_argv
-
-
-None are exported by default, but they are exportable.
 
 =head2 convert_args_to_argv(%args) -> [status, msg, result, meta]
+
+Convert hash arguments to command-line options (and arguments).
 
 Convert hash arguments to command-line arguments. This is the reverse of
 C<Perinci::Sub::GetArgs::Argv::get_args_from_argv>.
@@ -179,7 +172,16 @@ C<use_pos=1> the same hash will be converted to C<[1, 2, '--arg3', 'a b']>.
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
+ (any)
 
 =head1 TODO
 
@@ -215,7 +217,7 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
